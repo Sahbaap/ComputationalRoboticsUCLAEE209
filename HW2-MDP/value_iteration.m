@@ -9,7 +9,7 @@ function [optimal_policy_VI,optimal_value_VI] = value_iteration(lambda)  %(#AS^2
     
     V_diff = 1000;
     idx_policy_iteration = 0;
-    eps = 0.001;
+    eps = 0.01;
     
     Pe = 0.25;
 
@@ -42,11 +42,18 @@ function [optimal_policy_VI,optimal_value_VI] = value_iteration(lambda)  %(#AS^2
                         for (t=-1:1:1)
                             if (t ~= 0)%~(t==0 && r ~= 0)%
 
-                                if eq(s,state(3,4,5),'check_heading_too') || eq(s,state(3,4,6),'check_heading_too') || eq(s,state(3,4,7),'check_heading_too')
+                                % limited heading
+%                                 if eq(s,state(3,4,5),'check_heading_too') || eq(s,state(3,4,6),'check_heading_too') || eq(s,state(3,4,7),'check_heading_too')
+%                                    t = 0;
+%                                    r = 0;
+%                                 end
+                                
+                                % all heading
+                                if eq(s,state(3,4,5))
                                    t = 0;
                                    r = 0;
                                 end
-                                
+
                                 % select action
                                 a = action(t,r);
                                 

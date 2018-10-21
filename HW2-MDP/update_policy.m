@@ -24,11 +24,18 @@ function optimal_one_step_lookahead_policy = update_policy(V) %(AS^2 # of operat
                     for (t=-1:1:1)
                         if (t ~= 0)%~(t==0 && r ~= 0)
                             
-                            if eq(s,state(3,4,5),'check_heading_too') || eq(s,state(3,4,6),'check_heading_too') || eq(s,state(3,4,7),'check_heading_too')
+                              % limited heading
+%                             if eq(s,state(3,4,5),'check_heading_too') || eq(s,state(3,4,6),'check_heading_too') || eq(s,state(3,4,7),'check_heading_too')
+%                                 t = 0;
+%                                 r = 0;
+%                             end
+                            
+                            % All heading
+                            if eq(s,state(3,4,5))
                                 t = 0;
                                 r = 0;
                             end
-                            
+
                             a = action(t,r);
                             %(#S operations)
                             q_val = Q(V,a,s,Pe,lambda);

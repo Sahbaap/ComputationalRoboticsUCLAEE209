@@ -361,12 +361,12 @@
 \end{figure}	
 	
 	\newpage
-	\noindent 5(c) 	The overal time that it took either policy and value iteration algorithms under different heading rewards and $p_{e}$ is shown in Table 1. It can be seen that the value iteration algorithm overall took longer (about two times) compared to the policy iteration to converge.
+	\noindent 5(c) 	The overal time that it took either policy and value iteration algorithms under different heading rewards and $p_{e}$ is shown in Table 1. It can be seen that the value iteration algorithm overall took longer compared to the policy iteration to converge. Also it can be seen that the limited heading reward took longer to converge than the one where heading does matter for the final reward. Also, it is witnessed that when $P_{e} = 0.25$ it took longer to converge for the algorithms compared to the $P_{e} = 0$. This is also expected since the uncertainty makes the robot to explore more on average which in turn makes the algorithm to converge slower.
 	\begin{center}
 		\begin{tabular}{ |c|c|c|c|c| } 
 			\hline
 			& All head. (Pr = 0) & All head. (Pr = 0.25) & limited head. (Pr = 0) & limited head. (Pr = 0.25) \\ \hline
-			Policy iteration & 272 (s) & 313 (s) & 422 (s) & 400 (s) \\ \hline
+			Policy iteration & 272 (s) & 373 (s) & 422 (s) & 477 (s) \\ \hline
 			Value iteration & 571 (s) & 597 (s) & 705 (s) & 798(s) \\ \hline
 			\hline
 		\end{tabular}
